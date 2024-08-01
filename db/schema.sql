@@ -1,3 +1,5 @@
+\c employee_tracker_db
+
 CREATE TABLE departments (
   id SERIAL PRIMARY KEY,
   name VARCHAR(255) UNIQUE NOT NULL
@@ -16,4 +18,24 @@ CREATE TABLE employees (
   last_name VARCHAR(255) NOT NULL,
   role_id INTEGER REFERENCES roles(id) ON DELETE SET NULL,
   manager_id INTEGER REFERENCES employees(id) ON DELETE SET NULL
+);
+
+CREATE TABLE cases (
+  id SERIAL PRIMARY KEY,
+  case_number VARCHAR(255) UNIQUE NOT NULL,
+  case_name VARCHAR(255) NOT NULL,
+  status VARCHAR(255) NOT NULL,
+  assigned_to INTEGER REFERENCES employees(id) ON DELETE SET NULL
+);
+
+CREATE TABLE clients (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  contact_info VARCHAR(255)
+);
+
+CREATE TABLE client_cases (
+  id SERIAL PRIMARY KEY,
+  client_id INTEGER REFERENCES clients(id) ON DELETE CASCADE,
+  case_id INTEGER REFERENCES cases(id) ON DELETE CASCADE
 );
