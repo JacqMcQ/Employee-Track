@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const { Pool } = require('pg');
 const inquirer = require('inquirer');
@@ -9,18 +11,16 @@ const PORT = process.env.PORT || 3001;
 
 // Connect to database
 const pool = new Pool({
-  user: 'postgres',
-  password: 'Wcv2y8bw!',
-  host: 'localhost',
-  database: 'employee_tracker_db'
-});
-
-// Connect to the database and handle connection errors
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    host: process.env.DB_HOST,
+    database: process.env.DB_DATABASE
+  });
+  
 pool.connect()
   .then(() => console.log('Connected to the employee_tracker_db database.'))
   .catch(err => console.error('Connection error', err.stack));
 
-// Main function to display the menu options
 function startPrompt() {
   inquirer.prompt([
     {
@@ -63,13 +63,12 @@ function startPrompt() {
         updateEmployeeRole();
         break;
       case 'Exit':
-        pool.end();  // Close the database connection
+        pool.end();  
         break;
     }
   });
 }
 
-// Function to view all departments
 function viewDepartments() {
   pool.query('SELECT id, name FROM departments', (err, res) => {
     if (err) throw err;
@@ -78,7 +77,6 @@ function viewDepartments() {
   });
 }
 
-// Function to view all roles
 function viewRoles() {
   pool.query(`
     SELECT roles.id, roles.title, roles.salary, departments.name AS department 
@@ -91,7 +89,6 @@ function viewRoles() {
   });
 }
 
-// Function to view all employees
 function viewEmployees() {
   pool.query(`
     SELECT e.id, e.first_name, e.last_name, r.title AS role, d.name AS department, r.salary, m.first_name AS manager
@@ -105,8 +102,6 @@ function viewEmployees() {
     startPrompt();
   });
 }
-
-// Function to add a department
 function addDepartment() {
   inquirer.prompt([
     {
@@ -123,8 +118,6 @@ function addDepartment() {
     });
   });
 }
-
-// Function to add a role
 function addRole() {
   inquirer.prompt([
     {
@@ -157,7 +150,6 @@ function addRole() {
   });
 }
 
-// Function to add an employee
 function addEmployee() {
   inquirer.prompt([
     {
@@ -198,7 +190,6 @@ function addEmployee() {
   });
 }
 
-// Function to update an employee role
 function updateEmployeeRole() {
   inquirer.prompt([
     {
@@ -229,5 +220,4 @@ function updateEmployeeRole() {
   });
 }
 
-// Start the prompt when the script is run
 startPrompt();
