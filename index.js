@@ -5,18 +5,16 @@ const { Pool } = require('pg');
 const inquirer = require('inquirer');
 const consoleTable = require('console.table');
 
-// Initialize Express
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Connect to database
 const pool = new Pool({
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     host: process.env.DB_HOST,
     database: process.env.DB_DATABASE
   });
-  
+
 pool.connect()
   .then(() => console.log('Connected to the employee_tracker_db database.'))
   .catch(err => console.error('Connection error', err.stack));
