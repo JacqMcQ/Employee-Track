@@ -8,12 +8,19 @@ const consoleTable = require('console.table');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const pool = new Pool({
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    host: process.env.DB_HOST,
-    database: process.env.DB_DATABASE
-  });
+const pool = new Pool(
+  {
+    user: 'postgres',
+    password: 'NolRow20',
+    host: 'localhost',
+    database: 'employee_tracker_db'
+  },
+
+  console.log(`Connected to the books_db database.`)
+)
+
+pool.connect();
+
 
 pool.connect()
   .then(() => console.log('Connected to the employee_tracker_db database.'))
