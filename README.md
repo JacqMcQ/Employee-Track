@@ -1,4 +1,4 @@
-# Employee Tracker
+# Employee Track
 
 A command-line application for managing an employee database. This app allows you to view and manage departments, roles, and employees in a PostgreSQL database.
 

@@ -1,25 +1,21 @@
 const express = require('express');
-const { Pool } = require('pg');
 const inquirer = require('inquirer');
-const consoleTable = require('console.table');
+require('dotenv').config();
+const { Pool } = require('pg');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const pool = new Pool(
-  {
-    user: 'postgres',
-    password: 'NolRow20',
-    host: 'localhost',
-    database: 'employee_tracker_db'
-  },
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+});
 
-  console.log(`Connected to the books_db database.`)
-)
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-pool.connect()
-  .then(() => console.log('Connected to the employee_tracker_db database.'))
-  .catch(err => console.error('Connection error', err.stack));
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
 
 function startPrompt() {
   inquirer.prompt([
