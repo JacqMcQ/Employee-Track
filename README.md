@@ -1,9 +1,25 @@
 # Employee Track
 
-A command-line application for managing an employee database. This app allows you to view and manage departments, roles, and employees in a PostgreSQL database.
+A command-line application for managing an employee database. This app allows you to view and manage departments, roles, and employees in a PostgreSQL database.<video 
 
 **DEMO**
 watch the video demo at (https://drive.google.com/file/d/1-D9cLjgmu_1Gmkgw2G60BlDiJRB3ftPB/view?usp=drive_link)
+
+
+<video controls src="assests/Employee-track-demo.mp4" title="Title"></video>
+## Table of Contents
+
+- [Features](#Features)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Code Overview](#code-overview)
+- [Acknowledgements](#acknowledgements)
+- [Contributions](#contributions)
+- [License](#license)
+
+
+
 ## Features
 
 - **View all departments**: List all departments in the database.
@@ -75,7 +91,7 @@ index.js: The main file that initializes the application, sets up the database c
     Inquirer.js
     Console.table
 
-## Cotributions
+## Contributions
 
 Course material from the UT Austin Coding Bootcamp was referenced throught the project to include the generation of the dotenv file. AI was used to troubleshoot for issues with syntactical errors as well as correct fommating for the pool.query method used in the code to retrieve the id, title, salary, and name (aliased as department) from the roles table and then join the roles table with the departments table on the department_id column. Stack overflow was cited for usage of Inquiry library,  https://stackoverflow.com/questions/78085379/inquirer-doesnt-wait-for-input-after-prompt.
 
