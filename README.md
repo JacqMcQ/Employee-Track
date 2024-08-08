@@ -3,7 +3,7 @@
 A command-line application for managing an employee database. This app allows you to view and manage departments, roles, and employees in a PostgreSQL database.<video 
 
 **DEMO**
-watch the video demo at (https://drive.google.com/file/d/1-D9cLjgmu_1Gmkgw2G60BlDiJRB3ftPB/view?usp=drive_link)
+watch the video demo at (https://youtu.be/6mAp7zyrDRc)
 
 
 <video controls src="assests/Employee-track-demo.mp4" title="Title"></video>
