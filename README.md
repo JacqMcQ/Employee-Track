@@ -93,6 +93,6 @@ index.js: The main file that initializes the application, sets up the database c
 
 ## Contributions
 
-Course material from the UT Austin Coding Bootcamp was referenced throught the project to include the generation of the dotenv file. AI was used to troubleshoot for issues with syntactical errors as well as correct fommating for the pool.query method used in the code to retrieve the id, title, salary, and name (aliased as department) from the roles table and then join the roles table with the departments table on the department_id column. Stack overflow was cited for usage of Inquiry library,  https://stackoverflow.com/questions/78085379/inquirer-doesnt-wait-for-input-after-prompt.
+Course material from the UT Austin Coding Bootcamp was referenced throughout the project to include the generation of the dotenv file. AI was used to troubleshoot for issues with syntactical errors as well as correct fommating for the pool.query method used in the code to retrieve the id, title, salary, and name (aliased as department) from the roles table and then join the roles table with the departments table on the department_id column. Stack overflow was cited for usage of Inquiry library,  https://stackoverflow.com/questions/78085379/inquirer-doesnt-wait-for-input-after-prompt.
 
 ## License: NA
