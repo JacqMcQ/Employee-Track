@@ -3,8 +3,7 @@
 A command-line application for managing an employee database. This app allows you to view and manage departments, roles, and employees in a PostgreSQL database.
 
 **DEMO**
-<video controls src="assests/Demo.mp4" title="Title"></video>
-
+watch the video demo at (https://drive.google.com/file/d/1-D9cLjgmu_1Gmkgw2G60BlDiJRB3ftPB/view?usp=drive_link)
 ## Features
 
 - **View all departments**: List all departments in the database.
